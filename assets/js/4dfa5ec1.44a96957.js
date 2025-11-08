@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkmy_documentation=globalThis.webpackChunkmy_documentation||[]).push([[6814],{3170:a=>{a.exports=JSON.parse('{"label":"facebook","permalink":"/Documentation-Docusaurus/blog/tags/facebook","allTagsPath":"/Documentation-Docusaurus/blog/tags","count":1}')}}]);

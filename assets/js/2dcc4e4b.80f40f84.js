@@ -1,1 +1,0 @@
-"use strict";(globalThis.webpackChunkmy_documentation=globalThis.webpackChunkmy_documentation||[]).push([[5908],{7676:a=>{a.exports=JSON.parse('{"label":"docusaurus","permalink":"/docs-as-code-tutorial/blog/tags/docusaurus","allTagsPath":"/docs-as-code-tutorial/blog/tags","count":4}')}}]);

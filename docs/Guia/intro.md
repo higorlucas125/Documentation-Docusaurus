@@ -8,3 +8,4 @@ Aqui irá ficar o gui das documentações, como arquiteturas, padrões de projet
 
 ## Adicionando informações 
 
+Novo 

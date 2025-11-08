@@ -3,10 +3,10 @@ name: Deploy Docusaurus to GitHub Pages
 on:
   push:
     branches:
-      - main  # dispara o deploy quando fizer push na branch main
+      - main  # dispara o deploy quando fizer push na main
 
 permissions:
-  contents: write  # permite escrever na branch gh-pages
+  contents: write
 
 jobs:
   deploy:
@@ -31,5 +31,8 @@ jobs:
       - name: Deploy to GitHub Pages
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          USE_SSH: true
         run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
           npx docusaurus deploy

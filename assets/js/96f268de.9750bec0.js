@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkmy_documentation=globalThis.webpackChunkmy_documentation||[]).push([[5337],{7550:o=>{o.exports=JSON.parse('{"permalink":"/docs-as-code-tutorial/blog/tags/hello","page":1,"postsPerPage":10,"totalPages":1,"totalCount":2,"blogDescription":"Blog","blogTitle":"Blog"}')}}]);

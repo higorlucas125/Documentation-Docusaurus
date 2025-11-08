@@ -1,39 +1,33 @@
-name: Deploy Docusaurus to GitHub Pages
+name: Vale Lint Checker
 
+# Trigger the workflow on specific events.
 on:
-  push:
+  push: # Run on every push to the main branch.
     branches:
-      - main  # dispara o deploy quando fizer push na main
-
-permissions:
-  contents: write
+      - main
+  pull_request: # Run on pull requests targeting any branch.
+    branches:
+      - '*'
+  workflow_dispatch: # Allow manual triggering from the Actions tab.
 
 jobs:
-  deploy:
+  prose:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          persist-credentials: false
+      # Step 1: Check out the repository code.
+      - name: Checkout Code
+        uses: actions/checkout@v3 
 
+      # Step 2: Set up Node.js
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v3
         with:
-          node-version: 20
+          node-version: 18 # Use Node.js 18 or higher
 
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Build Docusaurus
-        run: npm run build
-
-      - name: Deploy to GitHub Pages
+      # Step 3: Run Vale lint checks.
+      - name: Vale Lint
+        uses: errata-ai/vale-action@reviewdog
+        with:
+          files: .
         env:
-          GIT_USER: github-actions[bot]
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git config --global user.name "github-actions[bot]"
-          git remote set-url origin https://github.com/${{ github.repository }}.git
-          npx docusaurus deploy --yes
